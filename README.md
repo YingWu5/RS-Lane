@@ -11,6 +11,7 @@ The PyTorch implementation of the paper ["RS-Lane: A Robust Lane Detection Metho
 <div align=center><img width="800" height="300" src="https://github.com/YingWu5/RS-Lane/blob/master/images/culane.png"/></div>
 <div align=center><img width="800" height="600" src="https://github.com/YingWu5/RS-Lane/blob/master/images/result2.png"/></div>
 
+
 ## Get started
 ### 1. Prerequisites
 - Python == 3.7
@@ -113,6 +114,7 @@ cd tools
 python evaluate.py --result /path/to/test/json --gt /path/to/groundtruth/json
 ```
 - CULane
+
 Using the [offical evaluate tools](https://github.com/XingangPan/SCNN).
 
 ## Citation
