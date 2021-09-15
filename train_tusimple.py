@@ -3,6 +3,7 @@ import os
 import time
 
 import numpy as np
+import argparse
 
 import torch
 import torch.nn as nn
@@ -17,6 +18,16 @@ from model.model import Resnest_LaneNet
 from loss.dice_loss import GDiceLossV2
 
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
+
+def init_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--data_dir', type=str, help='path to CULane dataset')
+    parser.add_argument('--ckpt_path', type=str, help='path to parameter file (.pth); If None, training from the beginning')
+    parser.add_argument('--save_ckpt', type=str, default='save_ckpt', help='path to parameter file (.pth) while training')
+    parser.add_argument('--epoch', type=int, default=10, help='training epoch number')
+    parser.add_argument('--label', type=str, help='label to denote details of training')
+
+    return parser.parse_args()
 
 def init_weights(model):
     if type(model) in [nn.Conv2d, nn.ConvTranspose2d, nn.Linear]:
@@ -39,9 +50,9 @@ def print_info(summerwriter,epoch,step, on_val ,loss,bin_loss,bin_perception,bin
         summerwriter.add_scalar('train_recall', bin_recall, step)
         summerwriter.add_scalar('train_F1', bin_F1, step)
 
-    print('{}  \nEpoch:{}  Step:{}  TrainLoss:{:.5f}  Bin_Loss:{:.5f} '
+    print('Epoch:{}  Step:{}  TrainLoss:{:.5f}  Bin_Loss:{:.5f} '
             'bin_perception:{:.5f}  bin_recall:{:.5f}  bin_F1:{:.5f}'
-            .format(label, epoch, step, loss, bin_loss,
+            .format(epoch, step, loss, bin_loss,
                     bin_perception, bin_recall, bin_F1))
 
 def train(data_dir,ckpt_path,save_path,epoch_num,label):
@@ -231,9 +242,5 @@ def val(model, data_loader, epoch_idx, device, summerwriter):
 
 if __name__ == '__main__':
     
-    data_dir='D:\Luna\SYSU\Dataset\Tusimple'
-    ckpt_path='ckpt\\tusimple.pth'
-    save_path='ckpt_save'
-    epoch_num=5
-    label = 'test'
-    train(data_dir,ckpt_path,save_path,epoch_num,label)
+    args = init_args()
+    train(args.data_dir,args.ckpt_path,args.save_path,args.epoch,args.label)

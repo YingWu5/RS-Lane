@@ -20,11 +20,13 @@ def init_args():
     parser.add_argument('--save_path', type=str, default='output', help='path to save dir')
     parser.add_argument('--show', action='store_true', help='whether to show visualization images')
     parser.add_argument('--save_img', action='store_true', help='whether to save visualization images')
+    parser.add_argument('--label', type=str, help='label to denote details of experiments')
+
 
     return parser.parse_args()
 
 
-def test_tusimple(data_dir,ckpt_path,save_path,show,save):
+def test_tusimple(data_dir,ckpt_path,save_path,show,save,label):
 
     '''Test config'''
     batch_size = 1
@@ -39,7 +41,7 @@ def test_tusimple(data_dir,ckpt_path,save_path,show,save):
         print("Using CPU!")
     print("Batch size: %d" % batch_size)
 
-    output_dir = '%s/Test-%s' % (save_path,test_start_time)
+    output_dir = '%s/Test-%s' % (save_path,label)
     if os.path.exists(output_dir) is False:
         os.makedirs(output_dir)
 
@@ -184,20 +186,13 @@ def test_tusimple(data_dir,ckpt_path,save_path,show,save):
                 
                 batch_idx += 1
 
-        with open(f'{output_dir}/test_pred-{test_start_time}.json', 'w') as f:
+        with open(f'{output_dir}/test_pred-{label}.json', 'w') as f:
             for item in jsonlist:
                 json.dump(item, f)  # , indent=4, sort_keys=True
                 f.write('\n')
         
             
 if __name__ == '__main__':
-    
-    data_dir='D:\Luna\SYSU\Dataset\Tusimple'
-    ckpt_path = 'ckpt/tusimple.pth'
-    save_path='output'
-    show=True
-    save = True
-    test_tusimple(data_dir,ckpt_path,save_path,show,save)
 
-    # args = init_args()
-    # test_tusimple(args.data_dir,args.ckpt_path,args.save_path,args.show,args.save)
+    args = init_args()
+    test_tusimple(args.data_dir,args.ckpt_path,args.save_path,args.show,args.save,args.label)

@@ -180,13 +180,7 @@ def test_culane(data_dir,ckpt_path,save_path,show,save,label):
          
 if __name__ == '__main__':
 
-    # args = init_args()
-    # test_culane(args.data_dir,args.ckpt_path,args.save_path,args.show,args.save,args.label)
+    args = init_args()
+    test_culane(args.data_dir,args.ckpt_path,args.save_path,args.show,args.save,args.label)
     
-    data_dir='D:\Luna\SYSU\Dataset\CULane'
-    ckpt_path = 'D:\Luna\SYSU\code\Lane_Detection\ckpt\culane\ckpt_2021-01-21_10-27-47_step-47000.pth'
-    label = '0915_23800_merge'
-    save_path='output'
-    show=True
-    save = False 
-    test_culane(data_dir,ckpt_path,save_path,show,save,label)
+    
