@@ -16,7 +16,7 @@ The PyTorch implementation of the paper ["RS-Lane: A Robust Lane Detection Metho
 ### 1. Prerequisites
 - Python == 3.7
 - PyTorch == 1.7
-- CUDA == 10.2 (If you don't have CUDA, you can still train with CPU.)
+- CUDA == 10.2 (If you don't have CUDA, you can still run with CPU.)
 - Other dependencies described in `requirements.txt`
 
 ### 2. Install
@@ -25,7 +25,7 @@ The PyTorch implementation of the paper ["RS-Lane: A Robust Lane Detection Metho
 conda create -n rslane python=3.7 -y
 conda activate rslane
 ```
-- Install Pytorch follow [the offical tutorials](https://pytorch.org/)
+- Install Pytorch, follow [the offical tutorials](https://pytorch.org/)
 - Install other dependencies
 ```
 pip install -r requirements.txt
@@ -60,7 +60,6 @@ $culane
 
 ### 4. Training
 ```
-train(data_dir,ckpt_path,save_path,epoch_num,label)
 python train_CULane.py \
     --data_dir /path/to/culane 
     --ckpt_path /path/to/checkpoint/file 
@@ -115,7 +114,7 @@ python evaluate.py --result /path/to/test/json --gt /path/to/groundtruth/json
 ```
 - CULane
 
-Using the [offical evaluate tools](https://github.com/XingangPan/SCNN).
+Use the [offical evaluate tools](https://github.com/XingangPan/SCNN).
 
 ## Citation
 ```
