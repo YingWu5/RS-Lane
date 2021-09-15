@@ -19,7 +19,7 @@ def init_args():
     parser.add_argument('--ckpt_path', type=str, help='path to parameter file (.pth)')
     parser.add_argument('--save_path', type=str, default='output', help='path to save dir')
     parser.add_argument('--show', action='store_true', help='whether to show visualization images')
-    parser.add_argument('--save_img', action='store_true', help='whether to save visualization images')
+    parser.add_argument('--save', action='store_true', help='whether to save visualization images')
     parser.add_argument('--label', type=str, help='label to denote details of experiments')
 
 
