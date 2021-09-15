@@ -112,3 +112,13 @@ python evaluate.py --result /path/to/test/json --gt /path/to/groundtruth/json
 Using the [offical evaluate tools](https://github.com/XingangPan/SCNN).
 
 ## Citation
+```
+@article{zhang2021rs,
+  title={Rs-Lane: a robust lane detection method based on ResNeSt and self-attention distillation for challenging traffic situations},
+  author={Zhang, Ronghui and Wu, Yueying and Gou, Wanting and Chen, Junzhou},
+  journal={Journal of advanced transportation},
+  volume={2021},
+  year={2021},
+  publisher={Hindawi}
+}
+```
