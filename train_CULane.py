@@ -210,9 +210,5 @@ def val(model, data_loader, epoch_idx, device, summerwriter ,label):
     
 if __name__ == '__main__':
     
-    data_dir='D:\Luna\SYSU\Dataset\CULane'
-    ckpt_path='ckpt\culane.pth'
-    save_path='ckpt_save'
-    epoch_num=5
-    label = 'test'
-    train(data_dir,ckpt_path,save_path,epoch_num,label)
+    args = init_args()
+    train(args.data_dir, args.ckpt_path, args.save_path, args.epoch_num, args.label)
