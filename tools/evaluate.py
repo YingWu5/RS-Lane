@@ -1,7 +1,14 @@
 import numpy as np
+import argparse
 from sklearn.linear_model import LinearRegression
 import ujson as json
     
+def init_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--result', type=str, help='/path/to/test/json')
+    parser.add_argument('--gt', type=str, help='/path/to/groundtruth/json')
+
+    return parser.parse_args()
 
 class LaneEval(object):
     lr = LinearRegression()
@@ -92,6 +99,7 @@ class LaneEval(object):
 
 if __name__ == '__main__':
     
-    json = LaneEval.bench_one_submit('output\\test_pred-2021-01-20_11-29-13.json', 'groundtruth.json')
+    args = init_args()
+    json = LaneEval.bench_one_submit(args.result, args.gt)
     print(json)
 
