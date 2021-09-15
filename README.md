@@ -4,12 +4,12 @@ The PyTorch implementation of the paper ["RS-Lane: A Robust Lane Detection Metho
 ## Basic Reults
 
 ### Results on TuSimple Benchmark
-![Comparison on TuSimple testing set](https://github.com/YingWu5/RS-Lane/blob/master/images/tusimple.png)
-![Results on TuSimple testing set](https://github.com/YingWu5/RS-Lane/blob/master/images/result1.png)
+<div align=center><img width="800" height="200" src="https://github.com/YingWu5/RS-Lane/blob/master/images/tusimple.png"/></div>
+<div align=center><img width="800" height="370" src="https://github.com/YingWu5/RS-Lane/blob/master/images/result1.png"/></div>
 
 ### Results on CULane Benchmark
-![Comparison on CULane testing set](https://github.com/YingWu5/RS-Lane/blob/master/images/culane.png)
-![Results on CULane testing set](https://github.com/YingWu5/RS-Lane/blob/master/images/result2.png)
+<div align=center><img width="800" height="300" src="https://github.com/YingWu5/RS-Lane/blob/master/images/culane.png"/></div>
+<div align=center><img width="800" height="600" src="https://github.com/YingWu5/RS-Lane/blob/master/images/result2.png"/></div>
 
 ## Get started
 ### 1. Prerequisites
